@@ -4,7 +4,7 @@ A CLI tool for generating and improving AI prompts using Claude. This tool helps
 
 ## Features
 
-- 🔄 **Interactive Prompt Refinement**: Use the `--refine` flag to get helpful follow-up questions that make your prompts more specific and effective
+- 🔄 **Interactive Prompt Refinement**: Use the `--refine or -r` flag to get helpful follow-up questions that make your prompts more specific and effective
 - 📋 **Clipboard Integration**: Improved prompts are automatically copied to your clipboard
 - 🔗 **Direct AI Integration**: Open your improved prompts directly in Claude or ChatGPT
 - 🎨 **Beautiful Terminal UI**: Clean and intuitive interface with progress indicators
@@ -30,10 +30,7 @@ A CLI tool for generating and improving AI prompts using Claude. This tool helps
 Before using the tool, set up your Claude API key (use any of these):
 
 ```bash
-pctl config --claude-key "your-api-key-here"  # full command
-pctl config -k "your-api-key-here"           # shorthand flag
-pctl c --claude-key "your-api-key-here"      # shorthand command
-pctl c -k "your-api-key-here"               # all shorthands
+pctl config --claude-key "your-api-key-here"
 ```
 
 View your current configuration:
@@ -56,9 +53,7 @@ Enable follow-up questions for better prompts (use any of these):
 
 ```bash
 pctl generate --refine  # full command
-pctl generate -r        # shorthand flag
-pctl g --refine         # shorthand command
-pctl g -r               # all shorthands
+pctl g -r               # shorthands
 ```
 
 ## Dependencies
@@ -81,10 +76,9 @@ Contributions are welcome! The project is currently in its MVP phase, focusing o
 
 Future phases will include:
 
-- Template support
-- History management
-- Multiple AI model integration
-- Collaborative features
+- [ ] Template support
+- [ ] History management
+- [ ] Multiple AI model integration
 
 ## License
 
