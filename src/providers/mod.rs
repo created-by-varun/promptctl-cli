@@ -1,5 +1,5 @@
-mod claude;
-pub use claude::*;
+mod web_claude;
+pub use web_claude::*;
 
 use crate::error::Result;
 use serde::{Deserialize, Serialize};
@@ -10,9 +10,7 @@ pub struct PromptResponse {
     pub model: String,
 }
 
+#[async_trait::async_trait]
 pub trait Provider {
-    fn generate_prompt(
-        &self,
-        input: &str,
-    ) -> impl std::future::Future<Output = Result<PromptResponse>> + Send;
+    async fn generate_prompt(&self, input: &str) -> Result<PromptResponse>;
 }

@@ -1,76 +1,85 @@
 # promptctl 🤖
 
-A CLI tool for generating and improving AI prompts using Claude. This tool helps you create more effective prompts through interactive refinement and best practices.
+An interactive CLI tool for generating and improving AI prompts using Claude. This tool helps you create more effective prompts through guided refinement and best practices.
 
 ## Features
 
-- 🔄 **Interactive Prompt Refinement**: Use the `--refine or -r` flag to get helpful follow-up questions that make your prompts more specific and effective
+- 🔄 **Interactive Prompt Generation**: Create better prompts through guided interaction with Claude
+- 🎯 **Follow-up Questions**: Use the `-r` flag to enable follow-up questions that make your prompts more specific and effective
 - 📋 **Clipboard Integration**: Improved prompts are automatically copied to your clipboard
 - 🔗 **Direct AI Integration**: Open your improved prompts directly in Claude or ChatGPT
 - 🎨 **Beautiful Terminal UI**: Clean and intuitive interface with progress indicators
-- 🔑 **Simple Configuration**: Easy API key management
+- 🌐 **Web-based Architecture**: No API key management needed - uses a secure web API
 
 ## Installation
 
-1. Ensure you have Rust installed ([Install Rust](https://rustup.rs/))
-2. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/promptctl.git
-   cd promptctl
-   ```
-3. Build and install:
-   ```bash
-   cargo install --path .
-   ```
+```bash
+# to be updated
+```
 
 ## Usage
 
-### Configure Claude API Key
-
-Before using the tool, set up your Claude API key (use any of these):
-
-```bash
-pctl config --claude-key "your-api-key-here"
-```
-
-View your current configuration:
-
-```bash
-pctl config --view  # full command
-pctl c --view       # shorthand
-```
-
 ### Generate Improved Prompts
 
-Generate and refine a prompt (use either command):
+Basic prompt generation:
 
 ```bash
 pctl generate  # full command
 pctl g         # shorthand
 ```
 
-Enable follow-up questions for better prompts (use any of these):
+Enable follow-up questions for more refined prompts:
 
 ```bash
 pctl generate --refine  # full command
-pctl g -r               # shorthands
+pctl g -r               # shorthand
 ```
 
-## Contributing
+### Example Workflow
 
-Contributions are welcome! The project is currently in its MVP phase, focusing on:
+1. Start with a basic prompt idea:
 
-1. Basic CLI functionality
-2. Interactive prompt refinement
-3. Clean prompt formatting
-4. Direct AI integration
+   ```bash
+   $ pctl g
+   Enter your prompt: write a blog post about rust
+   ```
 
-Future phases will include:
+2. Or use refinement mode for more specific prompts:
+
+   ```bash
+   $ pctl g -r
+   Enter your prompt: write a blog post about rust
+   What specific aspect of Rust would you like to focus on? memory safety
+   Who is your target audience? beginner programmers
+   ```
+
+3. The tool will generate an improved prompt and:
+   - Display it in a formatted box
+   - Copy it to your clipboard
+   - Offer options to open in Claude or ChatGPT
+
+## Project Status
+
+This project is part of a phased development approach:
+
+✅ **Phase 1 (Current)**: MVP
+
+- Basic CLI with interactive prompt generation
+- Follow-up questions for refinement
+- Clean prompt formatting
+- Direct AI integration
+
+🔜 **Phase 2**: Enhanced Features
 
 - [ ] Template support
 - [ ] History management
+- [ ] Improved prompt analysis
 - [ ] Multiple AI model integration
+
+## Contributing
+
+Contributions are welcome! Please check our [Contributing Guide](CONTRIBUTING.md) for guidelines.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

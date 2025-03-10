@@ -6,7 +6,7 @@ pub use commands::*;
 #[derive(Parser)]
 #[command(
     name = "pctl",
-    about = "A CLI tool for generating and improving AI prompts using Claude",
+    about = "A CLI tool for generating and improving AI prompts",
     version,
     author
 )]
@@ -20,8 +20,4 @@ pub enum Commands {
     /// Generate an improved prompt
     #[command(alias = "g")]
     Generate(commands::generate::GenerateArgs),
-
-    /// Configure API keys and settings
-    #[command(alias = "c")]
-    Config(commands::config::ConfigArgs),
 }

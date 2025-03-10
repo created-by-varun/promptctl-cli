@@ -2,29 +2,25 @@ use clap::Parser;
 use colored::Colorize;
 use promptctl::{
     cli::{Cli, Commands},
-    config::Config,
     error::Result,
-    providers::ClaudeClient,
+    providers::WebClaudeClient,
     ui::{self, LoadingSpinner, PromptDisplay},
 };
 
 #[tokio::main]
 async fn main() -> Result<()> {
     let cli = Cli::parse();
-    let mut config = Config::load()?;
 
     match cli.command {
         Commands::Generate(args) => {
-            let prompt_text = ui::get_input("Enter your prompt")?
-;
+            let prompt_text = ui::get_input("Enter your prompt")?;
 
-            let api_key = config.get_claude_api_key()?;
-            let client = ClaudeClient::new(api_key);
+            let client = WebClaudeClient::new();
 
             let mut spinner = LoadingSpinner::new(if args.refine {
-                "Getting follow-up questions from Claude..."
+                "Getting follow-up questions..."
             } else {
-                "Improving your prompt with Claude..."
+                "Improving your prompt..."
             });
             let response = promptctl::prompt::generate_prompt(
                 &client,
@@ -64,26 +60,6 @@ async fn main() -> Result<()> {
                     spinner.stop_with_message("Opened in ChatGPT")
                 }
                 _ => {}
-            }
-        }
-        Commands::Config(args) => {
-            if let Some(key) = args.claude_key {
-                config.claude_api_key = Some(key);
-                config.save()?;
-                println!("{}", "✓ Claude API key saved".green());
-            } else if args.view {
-                println!("{}", "Current configuration:".blue());
-                println!(
-                    "{} {}",
-                    "Claude API key:".dimmed(),
-                    config.claude_api_key.as_deref().unwrap_or("[not set]")
-                );
-            } else {
-                println!("{}", "No configuration changes specified".yellow());
-                println!(
-                    "{}",
-                    "Use --claude-key to set API key or --view to view current config".dimmed()
-                );
             }
         }
     }

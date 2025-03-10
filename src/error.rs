@@ -4,9 +4,6 @@ pub type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Error, Debug)]
 pub enum Error {
-    #[error("Configuration error: {0}")]
-    Config(String),
-
     #[error("Clipboard operation failed: {0}")]
     Clipboard(#[from] arboard::Error),
 
@@ -18,12 +15,6 @@ pub enum Error {
 
     #[error("Claude API error: {0}")]
     Claude(String),
-
-    #[error("API key not found: {0}")]
-    MissingApiKey(String),
-
-    #[error("Config error: {0}")]
-    ConfigError(#[from] config::ConfigError),
 
     #[error("JSON error: {0}")]
     JsonError(#[from] serde_json::Error),
