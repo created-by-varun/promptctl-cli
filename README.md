@@ -56,15 +56,6 @@ pctl generate --refine  # full command
 pctl g -r               # shorthands
 ```
 
-## Dependencies
-
-- [clap](https://crates.io/crates/clap): Command-line argument parsing
-- [dialoguer](https://crates.io/crates/dialoguer): Interactive terminal prompts
-- [reqwest](https://crates.io/crates/reqwest): HTTP client for API communication
-- [serde](https://crates.io/crates/serde): JSON serialization
-- [tokio](https://crates.io/crates/tokio): Async runtime
-- [colored](https://crates.io/crates/colored): Terminal text styling
-
 ## Contributing
 
 Contributions are welcome! The project is currently in its MVP phase, focusing on:
