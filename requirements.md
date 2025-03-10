@@ -68,15 +68,6 @@ The AI Prompt Generator CLI is a command-line tool written in Rust that helps us
 
 ## Technical Requirements
 
-### Dependencies
-
-- `clap`: Command-line argument parsing
-- `dialoguer`: Interactive terminal prompts
-- `reqwest`: HTTP client for API communication
-- `serde`: JSON serialization/deserialization
-- `tokio`: Async runtime support
-- `colored`: Terminal text styling
-
 ### API Integration
 
 - Integration with AI models for prompt analysis
@@ -132,13 +123,7 @@ The AI Prompt Generator CLI is a command-line tool written in Rust that helps us
 - History management
 - Configuration options
 - Improved analysis algorithms
-
-### Phase 3: Advanced Capabilities
-
 - Integration with multiple AI models
-- Advanced prompt optimization strategies
-- Collaborative features (prompt sharing)
-- Metrics for prompt effectiveness
 
 ## Success Criteria
 
