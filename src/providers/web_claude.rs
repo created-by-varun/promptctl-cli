@@ -32,6 +32,12 @@ pub struct WebClaudeClient {
     client: Client,
 }
 
+impl Default for WebClaudeClient {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl WebClaudeClient {
     pub fn new() -> Self {
         Self {
@@ -47,7 +53,7 @@ impl WebClaudeClient {
 
         let response = self
             .client
-            .post(&format!("{}/generate", API_URL))
+            .post(format!("{}/generate", API_URL))
             .json(&request)
             .send()
             .await?;
@@ -80,7 +86,7 @@ impl WebClaudeClient {
 
         let response = self
             .client
-            .post(&format!("{}/generate/refine", API_URL))
+            .post(format!("{}/generate/refine", API_URL))
             .json(&request)
             .send()
             .await?;
@@ -106,7 +112,7 @@ impl Provider for WebClaudeClient {
 
         let response = self
             .client
-            .post(&format!("{}/generate", API_URL))
+            .post(format!("{}/generate", API_URL))
             .json(&request)
             .send()
             .await?;
