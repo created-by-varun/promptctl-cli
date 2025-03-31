@@ -3,7 +3,7 @@ use crate::providers::{PromptResponse, Provider};
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 
-const API_URL: &str = "http://localhost:3000/api";
+const API_URL: &str = "http://promptctl.com/api";
 
 #[derive(Debug, Serialize)]
 struct GenerateRequest {
